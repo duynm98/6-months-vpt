@@ -1,0 +1,12 @@
+version: "3.9"
+
+services:
+  anniversary:
+    build: .
+    container_name: anniversary-timeline
+    ports:
+      - "8080:80"
+    # restart: unless-stopped
+    volumes:
+      - ./config.js:/usr/share/nginx/html/config.js:ro
+      - ./media:/usr/share/nginx/html/media:ro
