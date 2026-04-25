@@ -171,9 +171,16 @@ const CONFIG = {
     },
     {
       date:    "Apr 21, 2026",
-      title:   "Bảo đang chia tay chắc không ai tin ",
+      title:   "Bảo đang chia tay chắc không ai tin ❤️‍🩹",
       caption: "Dù sao thì vẫn rất thương và nhớ em. Nếu chúng ta không thể đi được với nhau đến cùng, anh cũng rất hạnh phúc vì được yêu em, vì em đã từng là một phần quan trọng trong cuộc sống của anh!",
       media:   ["images/260421.jpg"],
+      type:    "image",
+    },
+    {
+      date:    "Apr 25, 2026",
+      title:   "Tròn 6 tháng 💕",
+      caption: "Vậy là bây giờ chúng ta vẫn ngồi với nhau ở đây vào ngày tròn 6 tháng chúng ta yêu nhau. Lúc anh viết dòng này thì không biết sau hôm nay mọi chuyện sẽ như thế nào, chỉ mong rằng đây không phải là bức ảnh cuối cùng lưu lại những kỷ niệm của 2 đứa mình! Dù chuyện gì xảy ra, em hãy nhớ rằng đã từng có một người rất yêu em và thương em nhé!",
+      media:   ["images/260425.jpg"],
       type:    "image",
     },
     // {
@@ -208,14 +215,34 @@ const CONFIG = {
         message: "Anh vẫn luôn ấp ủ và lên kế hoạch cho nhiều thứ cùng em, chỉ chờ cơ hội được sử dụng nó 💕. Nên là cứ luôn chuẩn bị cho những điều bất ngờ hehe",
       },
       {
+        icon:    "💌",
+        title:   "Bức tâm tình nho nhỏ",
+        message: "Cảm ơn em rất nhiều vì đã đến bên anh, đã cho anh khoảng thời gian hạnh phúc nhất cuộc đời.\n\nXin lỗi em vì đã có những lần em cảm thấy phiền lòng, tổn thương.",
+      },
+      {
         icon:    "🌸",
-        title:   "Psst…",
+        title:   "Nói nghe nè",
         message: "Dù cho chuyện gì xảy ra, anh vẫn luôn biết ơn quãng thời gian ở bên em.",
       },
       {
         icon:    "🐠",
         title:   "Psst…",
         message: "Nếu không làm IT thì anh sẽ đi làm sale, vì việc anh làm giỏi nhất là Thương Thảo 💕",
+      },
+      {
+        icon:    "🐠",
+        title:   "Psst…",
+        message: "Nếu mỗi lần nhớ em anh tạo ra được 1 nguyên tử vàng, thì vua Midas cũng chỉ còn là cái tên 💕",
+      },
+      {
+        icon:    "🐠",
+        title:   "Psst…",
+        message: "Nếu mỗi lần nhớ em anh đốt được 1 calo thì bây giờ chắc anh đang bị còi xương",
+      },
+      {
+        icon:    "🐠",
+        title:   "Psst…",
+        message: "Cứ nhìn mặt em là anh lại muốn cáu!\n\nCáu nhươi",
       },
       {
         icon:    "✨",
