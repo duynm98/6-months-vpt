@@ -169,6 +169,13 @@ const CONFIG = {
       media:   ["images/260318.jpg"],
       type:    "image",
     },
+    {
+      date:    "Apr 21, 2026",
+      title:   "Bảo đang chia tay chắc không ai tin ",
+      caption: "Dù sao thì vẫn rất thương và nhớ em. Nếu chúng ta không thể đi được với nhau đến cùng, anh cũng rất hạnh phúc vì được yêu em, vì em đã từng là một phần quan trọng trong cuộc sống của anh!",
+      media:   ["images/260421.jpg"],
+      type:    "image",
+    },
     // {
     //   date:    "March 29, 2026",
     //   title:   "18+",
