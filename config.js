@@ -183,6 +183,20 @@ const CONFIG = {
       media:   ["images/260425.jpg"],
       type:    "image",
     },
+    {
+      date:    "Apr 26, 2026",
+      title:   "Tròn 6 tháng + 1 ngày 💕",
+      caption: "May quá bọn mình vẫn ở đây với nhau! Thật là hạnh phúc khi được thức dậy và đánh răng rửa mặt cùng iem. Thật là muốn về chung một nhà với em quá đii!",
+      media:   ["images/260426.jpg"],
+      type:    "image",
+    },
+    {
+      date:    "Apr 27, 2026",
+      title:   "Hậu concert 🔥",
+      caption: "Đi chơi với 33 người yêu về xong được người yêu thứ 34 ở nhà đợi rồi còn úp mỳ tôm full topping cho ăng! Công Chúa cũng chưa được đến cỡ này lun á.",
+      media:   ["images/260427.jpg", "images/260427_2.jpg"],
+      type:    "image",
+    },
     // {
     //   date:    "March 29, 2026",
     //   title:   "18+",
