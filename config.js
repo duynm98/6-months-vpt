@@ -197,6 +197,27 @@ const CONFIG = {
       media:   ["images/260427.jpg", "images/260427_2.jpg"],
       type:    "image",
     },
+    {
+      date:    "May 01, 2026",
+      title:   "Ngày 1 ở Hà Tĩnh",
+      caption: "Đón em về nhà chơi và chính thức ra mắt gia đình. Người này trong một hôm gặp gần hết họ hàng nội ngoại nhà anh lun 😄 thua dâu Hà Tĩnh đúng cái hộ khẩu.\n\nBà, các dì, các o các bác nhà anh ai cũng mong ngóng em hết.\n\nTối về còn suýt được mẹ cho ngủ với nhau 😄 Mẹ ơi bọn con còn trong sáng lắm chưa dám ngủ với nhau đâu!!",
+      media:   ["images/260501_6.jpeg", "images/260501_5.jpeg", "images/260501_4.jpeg", "images/260501_3.jpeg", "images/260501_2.jpeg", "images/260501.jpeg"],
+      type:    "image",
+    },
+    {
+      date:    "May 02, 2026",
+      title:   "Ngày 2 ở Hà Tĩnh",
+      caption: "Buổi sáng thì canh mẹ dậy đi thể dục một cái là nhảy lên giường ôm người yêu lun 💕 Thành công cho em ăn thử món mà anh thích nhất.\n\nHai ngày hôm nay tuy mệt xíu nhưng anh được ở cạnh những người mà anh yêu thương nhất trên đời. Thấy em như là một phần của gia đình anh thiệt là hạnh phúc, anh chỉ muốn điều đó chính thức thành sự thật luôn.",
+      media:   ["images/260502.jpeg", "images/260502_2.jpeg", "images/260502_3.jpeg", "images/260502_4.jpeg", "images/260502_5.jpeg"],
+      type:    "image",
+    },
+    {
+      date:    "May 03, 2026",
+      title:   "Lên lại Hà Nội",
+      caption: "Sau cả sáng nằm ôm ngủ với nhau, buổi trưa anh ăn cơm cùng gia đình em, chiều thì rủ nhau đi tập thể dục nhưng cuối cùng lại đi mall làm mấy trò con mèo 😄 Thề cute thiệt chứ",
+      media:   ["images/260503.jpg", "images/260503_2.jpg", "images/260503_3.jpg", "images/260503_4.jpg"],
+      type:    "image",
+    },
     // {
     //   date:    "March 29, 2026",
     //   title:   "18+",
