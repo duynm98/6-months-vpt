@@ -214,7 +214,7 @@ const CONFIG = {
     {
       date:    "May 03, 2026",
       title:   "Lên lại Hà Nội",
-      caption: "Sau cả sáng nằm ôm ngủ với nhau, buổi trưa anh ăn cơm cùng gia đình em, chiều thì rủ nhau đi tập thể dục nhưng cuối cùng lại đi mall làm mấy trò con mèo 😄 Thề cute thiệt chứ",
+      caption: "Sau cả sáng nằm ôm ngủ với nhau, buổi trưa anh ăn cơm cùng gia đình em, chiều thì rủ nhau đi tập thể dục nhưng cuối cùng lại đi mall làm mấy trò con mèo 😄 Thề cute thiệt chứ. Mà sau hôm nay ngừi eo lại đi job cả tuần ròi.",
       media:   ["images/260503.jpg", "images/260503_2.jpg", "images/260503_3.jpg", "images/260503_4.jpg"],
       type:    "image",
     },
