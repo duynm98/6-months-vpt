@@ -218,6 +218,13 @@ const CONFIG = {
       media:   ["images/260503.jpg", "images/260503_2.jpg", "images/260503_3.jpg", "images/260503_4.jpg"],
       type:    "image",
     },
+    {
+      date:    "May 09, 2026",
+      title:   "Được cạnh nhau 12 tiếng hôm nay 💕",
+      caption: "Em đi job cả tuần nên cuối tuần chúng ta mới đi chơi với nhau. Chúng ta có một ngày workdate cùng nhau và đi hát cùng nhau. Hữu duyên thế nào mà ban đầu đã trúng được phòng theme ATVNCG rồi mà sau đó phải đổi sang phòng theme Tùng Núi 😄. Thật sự là vui vì được dành cả ngày với em 💖",
+      media:   ["images/260509.jpg", "images/260509_2.jpg", "images/260509_3.jpg", "images/260509_4.jpg", "images/260509_5.jpg"],
+      type:    "image",
+    },
     // {
     //   date:    "March 29, 2026",
     //   title:   "18+",
