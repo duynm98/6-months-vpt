@@ -228,7 +228,7 @@ const CONFIG = {
     {
       date:    "May 17, 2026",
       title:   "Cafe board game ☕ 🎲",
-      caption: "Ưu điểm: Biết chơi nhiều board game\nKhuyết điểm: Chơi trò gì cũng thua em Thảo (trừ mèo nổ)",
+      caption: "Ưu điểm: Biết chơi nhiều board game.\t\nKhuyết điểm: Chơi trò gì cũng thua em Thảo (trừ mèo nổ)",
       media:   ["images/260517.jpg", "images/260517_2.jpg", "images/260517_3.jpg"],
       type:    "image",
     },
