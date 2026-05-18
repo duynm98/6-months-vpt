@@ -225,6 +225,13 @@ const CONFIG = {
       media:   ["images/260509.jpg", "images/260509_2.jpg", "images/260509_3.jpg", "images/260509_4.jpg", "images/260509_5.jpg"],
       type:    "image",
     },
+    {
+      date:    "May 17, 2026",
+      title:   "Cafe board game ☕ 🎲",
+      caption: "Ưu điểm: Biết chơi nhiều board game\nKhuyết điểm: Chơi trò gì cũng thua em Thảo (trừ mèo nổ)",
+      media:   ["images/260517.jpg", "images/260517_2.jpg", "images/260517_3.jpg"],
+      type:    "image",
+    },
     // {
     //   date:    "March 29, 2026",
     //   title:   "18+",
