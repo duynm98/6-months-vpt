@@ -12,7 +12,7 @@ const CONFIG = {
   },
 
   // The big message shown on the landing screen
-  heroTitle:    "6 Tháng Bên Nhau",
+  heroTitle:    "7 Tháng Bên Nhau",
   heroSubtitle: "Every moment with you is a treasure I'll keep forever.",
 
   // Anniversary date (shown in the hero section)
@@ -230,6 +230,13 @@ const CONFIG = {
       title:   "Cafe board game ☕ 🎲",
       caption: "Ưu điểm: Biết chơi nhiều board game.\t\nKhuyết điểm: Chơi trò gì cũng thua em Thảo (trừ mèo nổ)",
       media:   ["images/260517.jpg", "images/260517_2.jpg", "images/260517_3.jpg"],
+      type:    "image",
+    },
+    {
+      date:    "May 22, 2026",
+      title:   "Đi xem Doraemon cùng nhao 🎥🍿",
+      caption: "Lần thứ 2 bọn mình đi xem phim cùng nhau. Tính ra phần đáng nhớ nhất của buổi tối hôm nay là lúc 2 đứa ngồi ôm nhau trên cái ghế chờ của CGV chứ phim thì như cc.",
+      media:   ["images/260522.jpg", "images/260522_2.jpg", "images/260522_3.jpg", "images/260522_4.jpg"],
       type:    "image",
     },
     // {
