@@ -242,7 +242,7 @@ const CONFIG = {
     {
       date:    "May 30, 2026",
       title:   "Đi Lotte Tây Hồ",
-      caption: "Sáng đưa e đi phỏng vấn và đi xem những căn biệt thự mà chắc chắn mình sẽ không bao giờ mua được. Trưa thì đi workdate. Chiều thì đi Lotte Tây Hồ cùng nhau.",
+      caption: "Sáng đưa e đi phỏng vấn và đi xem những căn biệt thự mà chắc chắn mình sẽ không bao giờ mua được. Trưa thì đi workdate. Chiều thì đi Lotte Tây Hồ cùng nhau. Mall to nhưng hôm nay điện thoại hết pin nên hơi ít ảnh.",
       media:   ["images/260530.jpg", "images/260530_2.jpg"],
       type:    "image",
     },
