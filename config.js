@@ -239,6 +239,13 @@ const CONFIG = {
       media:   ["images/260522.jpg", "images/260522_2.jpg", "images/260522_3.jpg", "images/260522_4.jpg"],
       type:    "image",
     },
+    {
+      date:    "May 30, 2026",
+      title:   "Đi Lotte Tây Hồ",
+      caption: "Sáng đưa e đi phỏng vấn và đi xem những căn biệt thự mà chắc chắn mình sẽ không bao giờ mua được. Trưa thì đi workdate. Chiều thì đi Lotte Tây Hồ cùng nhau.",
+      media:   ["images/260530.jpg", "images/260530_2.jpg"],
+      type:    "image",
+    },
     // {
     //   date:    "March 29, 2026",
     //   title:   "18+",
