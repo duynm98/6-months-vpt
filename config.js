@@ -217,6 +217,7 @@ const CONFIG = {
       caption: "Buổi sáng thì canh mẹ dậy đi thể dục một cái là nhảy lên giường ôm người yêu lun 💕 Thành công cho em ăn thử món mà anh thích nhất.\n\nHai ngày hôm nay tuy mệt xíu nhưng anh được ở cạnh những người mà anh yêu thương nhất trên đời. Thấy em như là một phần của gia đình anh thiệt là hạnh phúc, anh chỉ muốn điều đó chính thức thành sự thật luôn.",
       media:   ["images/260502.jpeg", "images/260502_2.jpeg", "images/260502_3.jpeg", "images/260502_4.jpeg", "images/260502_5.jpeg"],
       type:    "image",
+      romantic: true,
     },
     {
       date:    "May 03, 2026",
