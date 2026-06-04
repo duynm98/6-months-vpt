@@ -34,6 +34,9 @@ const CONFIG = {
   //   media   – (optional) filename inside the /media folder
   //             e.g. "images/first-date.jpg"  or  "videos/trip.mp4"
   //   type    – "image" | "video" | "text"  (auto-detected if omitted)
+  //   romantic – true | false  (default false)
+  //             Set to true to highlight this card with a glowing border,
+  //             floating petals 🌸, and a 💕 Special badge
   //
   events: [
     {
@@ -42,6 +45,7 @@ const CONFIG = {
       caption: "Em mặc cái váy như công chúa trong truyện bước ra lun 👸🏻.\n\nBan đầu định ra Hồ Tây anh mí tỏ tình mà tặng hoa xong cái hồi hộp quá nói lun =))\n\nNgày đầu bọn mình iu nhau 🩷",
       images: ["images/6287438269007992222.jpg"],
       type:    "image",
+      romantic: true,   // 💕 set to true to highlight with romantic effects
     },
     {
       date:    "October 30, 2025",
@@ -112,6 +116,7 @@ const CONFIG = {
       caption: "Lần đầu tiên có chuyến đi chơi (hơi) xa cùng nhau, chắc là ngày bọn mình dành thời gian cho nhau nhiều nhất 🩷. A chọn ảnh của e ngày hôm nay để làm hình nền, không phải chỉ vì a thấy ảnh này xinh đâu, mà còn vì ngày hôm nay đối với a rất đáng nhớ vì e đã dành thời gian cả ngày cho a!",
       media:   ["images/251223.jpg", "images/251223_2.jpg", "images/251223_3.jpg", "images/251223_4.jpg", "images/251223_5.jpg"],
       type:    "image",
+      romantic: true,
     },
     {
       date:    "February 01, 2026",
@@ -182,6 +187,7 @@ const CONFIG = {
       caption: "Vậy là bây giờ chúng ta vẫn ngồi với nhau ở đây vào ngày tròn 6 tháng chúng ta yêu nhau. Lúc anh viết dòng này thì không biết sau hôm nay mọi chuyện sẽ như thế nào, chỉ mong rằng đây không phải là bức ảnh cuối cùng lưu lại những kỷ niệm của 2 đứa mình! Dù chuyện gì xảy ra, em hãy nhớ rằng đã từng có một người rất yêu em và thương em nhé!",
       media:   ["images/260425.jpg"],
       type:    "image",
+      romantic: true,
     },
     {
       date:    "Apr 26, 2026",
@@ -203,6 +209,7 @@ const CONFIG = {
       caption: "Đón em về nhà chơi và chính thức ra mắt gia đình. Người này trong một hôm gặp gần hết họ hàng nội ngoại nhà anh lun 😄 thua dâu Hà Tĩnh đúng cái hộ khẩu.\n\nBà, các dì, các o các bác nhà anh ai cũng mong ngóng em hết.\n\nTối về còn suýt được mẹ cho ngủ với nhau 😄 Mẹ ơi bọn con còn trong sáng lắm chưa dám ngủ với nhau đâu!!",
       media:   ["images/260501_6.jpeg", "images/260501_5.jpeg", "images/260501_4.jpeg", "images/260501_3.jpeg", "images/260501_2.jpeg", "images/260501.jpeg"],
       type:    "image",
+      romantic: true,
     },
     {
       date:    "May 02, 2026",

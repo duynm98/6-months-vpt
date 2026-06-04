@@ -890,6 +890,91 @@
             animation: fadeUp .7s forwards;
         }
 
+        /* ── ROMANTIC HIGHLIGHT ── */
+        @keyframes romanticGlow {
+            0%, 100% { box-shadow: 0 0 22px 6px rgba(217,79,114,.40), 0 4px 32px var(--shadow); }
+            50%       { box-shadow: 0 0 44px 14px rgba(217,79,114,.65), 0 4px 32px var(--shadow); }
+        }
+        @keyframes petalDrift {
+            0%   { transform: translateY(-10px) rotate(0deg);   opacity: 0; }
+            10%  { opacity: 1; }
+            90%  { opacity: .7; }
+            100% { transform: translateY(110px) rotate(360deg); opacity: 0; }
+        }
+        @keyframes heartFloat {
+            0%   { transform: translateY(0)   scale(1);    opacity: .9; }
+            100% { transform: translateY(-55px) scale(.5); opacity: 0; }
+        }
+
+        .card.romantic {
+            border: 2px solid rgba(217,79,114,.60);
+            animation: fadeUp .7s forwards, romanticGlow 2.8s ease-in-out 1s infinite;
+            background: linear-gradient(160deg, #fff 60%, #fde8ef 100%);
+        }
+        .card.romantic .card-date {
+            color: #d94f72;
+        }
+        .card.romantic .card-title {
+            color: #b8385a;
+        }
+        .card.romantic .card-body {
+            background: linear-gradient(to bottom, transparent, rgba(253,232,239,.55));
+        }
+        .card.romantic .card-accent {
+            background: linear-gradient(to bottom, #d94f72, #e8799a);
+        }
+        /* ribbon badge */
+        .card.romantic .card-accent::after {
+            content: '💕 Special';
+            position: absolute;
+            top: .65rem;
+            right: .65rem;
+            background: linear-gradient(135deg, #d94f72, #f5b8cc);
+            color: #fff;
+            font-family: var(--font-body);
+            font-size: .62rem;
+            font-style: italic;
+            letter-spacing: .06em;
+            padding: .22rem .65rem;
+            border-radius: 999px;
+            box-shadow: 0 2px 10px rgba(217,79,114,.45);
+            z-index: 10;
+            pointer-events: none;
+        }
+        /* floating petals container */
+        .romantic-petals {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            overflow: hidden;
+            border-radius: inherit;
+            z-index: 1;
+        }
+        .petal {
+            position: absolute;
+            top: 0;
+            font-size: 1rem;
+            animation: petalDrift linear infinite;
+            opacity: 0;
+        }
+        /* floating hearts on hover */
+        .card.romantic:hover .heart-burst { display: block; }
+        .heart-burst {
+            display: none;
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: 2;
+        }
+        .heart-burst span {
+            position: absolute;
+            bottom: 10%;
+            font-size: 1.1rem;
+            animation: heartFloat .9s ease-out forwards;
+            opacity: 0;
+        }
+
         /* ── CARD THUMB WRAP ── */
         .card-thumb-wrap {
             position: relative;
@@ -1573,6 +1658,40 @@
       <h3 class="card-title">${ev.title}</h3>
       <p class="card-caption">${ev.caption}</p>
     </div>`;
+
+            // ── ROMANTIC HIGHLIGHT ──────────────────────────────
+            if (ev.romantic === true) {
+                card.classList.add('romantic');
+
+                // floating petals
+                const petals = document.createElement('div');
+                petals.className = 'romantic-petals';
+                const PETAL_CHARS = ['🌸','🌷','💗','✨','🌹'];
+                for (let p = 0; p < 8; p++) {
+                    const el = document.createElement('span');
+                    el.className = 'petal';
+                    el.textContent = PETAL_CHARS[p % PETAL_CHARS.length];
+                    el.style.left = (10 + Math.random() * 80) + '%';
+                    el.style.animationDuration = (3 + Math.random() * 4) + 's';
+                    el.style.animationDelay    = (Math.random() * 5) + 's';
+                    el.style.fontSize = (.7 + Math.random() * .6) + 'rem';
+                    petals.appendChild(el);
+                }
+                card.appendChild(petals);
+
+                // hover heart burst
+                const burst = document.createElement('div');
+                burst.className = 'heart-burst';
+                const HEARTS = ['💕','💖','💗','💓','💝'];
+                for (let h = 0; h < 6; h++) {
+                    const hEl = document.createElement('span');
+                    hEl.textContent = HEARTS[h % HEARTS.length];
+                    hEl.style.left = (8 + Math.random() * 84) + '%';
+                    hEl.style.animationDelay = (h * .12) + 's';
+                    burst.appendChild(hEl);
+                }
+                card.appendChild(burst);
+            }
 
             timeline.appendChild(card);
         });
