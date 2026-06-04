@@ -159,6 +159,7 @@ const CONFIG = {
       caption: "Sau bao nhiêu lần trì hoãn thì cuối cùng cũng thực hiện được kèo steak! Hôm đấy người ta đã chuẩn bị hết rồi mà cứ tưởng người ta không mua hoa xong đòi cho bằng được, làm người ta phải nói ra, -1 sự bất ngờ. Mà cứ tưởng sau hôm nay sẽ được 1 đống ảnh sống ảo nhưng tiếc là toi không biết chụp ảnh =))",
       media:   ["images/260306.jpg", "images/260306_2.jpg", "images/260306_3.jpg"],
       type:    "image",
+      romantic: true,
     },
     {
       date:    "March 07, 2026",
@@ -202,6 +203,7 @@ const CONFIG = {
       caption: "Đi chơi với 33 người yêu về xong được người yêu thứ 34 ở nhà đợi rồi còn úp mỳ tôm full topping cho ăng! Công Chúa cũng chưa được đến cỡ này lun á.",
       media:   ["images/260427.jpg", "images/260427_2.jpg"],
       type:    "image",
+      romantic: true,
     },
     {
       date:    "May 01, 2026",
@@ -232,6 +234,7 @@ const CONFIG = {
       caption: "Em đi job cả tuần nên cuối tuần chúng ta mới đi chơi với nhau. Chúng ta có một ngày workdate cùng nhau và đi hát cùng nhau. Hữu duyên thế nào mà ban đầu đã trúng được phòng theme ATVNCG rồi mà sau đó phải đổi sang phòng theme Tùng Núi 😄. Thật sự là vui vì được dành cả ngày với em 💖",
       media:   ["images/260509.jpg", "images/260509_2.jpg", "images/260509_3.jpg", "images/260509_4.jpg", "images/260509_5.jpg"],
       type:    "image",
+      romantic: true,
     },
     {
       date:    "May 17, 2026",
