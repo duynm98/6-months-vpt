@@ -670,12 +670,12 @@
         }
 
         /* alternate left / right */
-        .card:nth-child(odd) {
+        .card--left {
             margin-left: 0;
             margin-right: auto;
         }
 
-        .card:nth-child(even) {
+        .card--right {
             margin-left: auto;
             margin-right: 0;
         }
@@ -698,12 +698,12 @@
             z-index: 2;
         }
 
-        .card:nth-child(odd)::before {
+        .card--left::before {
             right: -2.9rem;
             transform: translateX(50%);
         }
 
-        .card:nth-child(even)::before {
+        .card--right::before {
             left: -2.9rem;
             transform: translateX(-50%);
         }
@@ -718,11 +718,11 @@
             background: var(--rose-light);
         }
 
-        .card:nth-child(odd)::after {
+        .card--left::after {
             right: -1.5rem;
         }
 
-        .card:nth-child(even)::after {
+        .card--right::after {
             left: -1.5rem;
         }
 
@@ -1267,6 +1267,230 @@
             pointer-events: none;
         }
 
+        /* ── BIRTHDAY EFFECTS ── */
+        /* pennant triangle garland */
+        .bday-garland {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 500;
+            pointer-events: none;
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-start;
+            padding: 0 .5rem;
+        }
+
+        .bday-garland::before {
+            content: '';
+            position: absolute;
+            top: 5px;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg,
+                transparent,
+                rgba(200, 99, 122, .45) 15%,
+                rgba(201, 169, 110, .45) 50%,
+                rgba(200, 99, 122, .45) 85%,
+                transparent);
+        }
+
+        .bday-pennant {
+            width: 0;
+            height: 0;
+            border-left: 14px solid transparent;
+            border-right: 14px solid transparent;
+            border-top: 36px solid var(--rose);
+            opacity: .75;
+            transform-origin: top center;
+            animation: pennantSway 2.8s ease-in-out infinite;
+        }
+
+        .bday-pennant:nth-child(3n+1) { border-top-color: var(--rose); }
+        .bday-pennant:nth-child(3n+2) { border-top-color: var(--gold); animation-delay: .45s; }
+        .bday-pennant:nth-child(3n)   { border-top-color: var(--rose-light); animation-delay: .9s; }
+
+        /* letter-flag banner */
+        .bday-letter-garland {
+            position: fixed;
+            top: 0px;
+            left: 0;
+            right: 0;
+            z-index: 501;
+            pointer-events: none;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 4px;
+            padding: 0 1rem;
+        }
+
+        .bday-letter-garland::before {
+            content: '';
+            position: absolute;
+            top: 4px;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg,
+                transparent 5%,
+                rgba(180, 80, 100, .35) 20%,
+                rgba(180, 80, 100, .35) 80%,
+                transparent 95%);
+        }
+
+        .bday-letter {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: clamp(24px, 3.8vw, 40px);
+            height: clamp(30px, 4.8vw, 50px);
+            clip-path: polygon(0 0, 100% 0, 100% 74%, 50% 100%, 0 74%);
+            font-family: var(--font-display);
+            font-size: clamp(.72rem, 1.9vw, 1.1rem);
+            font-weight: 700;
+            color: rgba(255, 255, 255, .95);
+            text-shadow: 0 1px 3px rgba(0, 0, 0, .22);
+            flex-shrink: 0;
+            transform-origin: top center;
+            animation: pennantSway 2.8s ease-in-out infinite;
+        }
+
+        .bday-gap {
+            width: clamp(10px, 2vw, 20px);
+            flex-shrink: 0;
+        }
+
+        @keyframes pennantSway {
+            0%, 100% { transform: rotate(-6deg); }
+            50%       { transform: rotate(6deg); }
+        }
+
+        .bday-balloon {
+            position: fixed;
+            pointer-events: none;
+            z-index: 1;
+            bottom: -120px;
+            animation: balloonFly var(--dur, 12s) linear infinite;
+        }
+
+        .bday-balloon::before {
+            content: '';
+            display: block;
+            width: 34px;
+            height: 42px;
+            border-radius: 50% 50% 50% 50% / 45% 45% 55% 55%;
+            background: var(--bcolor, var(--rose));
+            opacity: .6;
+            box-shadow: inset -5px -5px 0 rgba(0, 0, 0, .08);
+        }
+
+        .bday-balloon::after {
+            content: '';
+            display: block;
+            width: 1px;
+            height: 48px;
+            background: rgba(100, 80, 80, .28);
+            margin: 1px auto 0;
+        }
+
+        @keyframes balloonFly {
+            0%   { transform: translate(0,                          0)      rotate(-3deg); opacity: 0;  }
+            5%   { opacity: .6; }
+            16%  { transform: translate(var(--dx, 20px),            -17vh)  rotate(3deg);  }
+            33%  { transform: translate(0,                          -34vh)  rotate(-3deg); }
+            50%  { transform: translate(calc(var(--dx, 20px) * -1), -51vh)  rotate(3deg);  }
+            66%  { transform: translate(0,                          -68vh)  rotate(-3deg); }
+            83%  { transform: translate(var(--dx, 20px),            -85vh)  rotate(3deg);  }
+            95%  { opacity: .6; }
+            100% { transform: translate(0,                          -120vh) rotate(-3deg); opacity: 0; }
+        }
+
+        /* ── MOUSE TRAIL ── */
+        .mouse-trail-particle {
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            border-radius: 50%;
+            animation: trailFloat var(--dur, .8s) ease-out forwards;
+        }
+
+        @keyframes trailFloat {
+            0%   { opacity: .9;  transform: translate(-50%, -50%) scale(1); }
+            100% { opacity: 0;   transform: translate(-50%, calc(-50% - 32px)) scale(0); }
+        }
+
+        /* ── MONTH SECTIONS ── */
+        .month-section {
+            position: relative;
+        }
+
+        .month-header {
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: .75rem;
+            width: 100%;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 1.75rem 0 .75rem;
+            z-index: 2;
+        }
+
+        .month-header::before,
+        .month-header::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+        }
+
+        .month-header::before {
+            background: linear-gradient(90deg, transparent, var(--gold-light));
+        }
+
+        .month-header::after {
+            background: linear-gradient(90deg, var(--gold-light), transparent);
+        }
+
+        .month-label {
+            font-family: var(--font-body);
+            font-size: .68rem;
+            letter-spacing: .25em;
+            text-transform: uppercase;
+            color: var(--gold);
+            white-space: nowrap;
+            transition: color .2s;
+        }
+
+        .month-header:hover .month-label {
+            color: var(--rose);
+        }
+
+        .month-chevron {
+            width: 6px;
+            height: 6px;
+            border-right: 1px solid var(--gold);
+            border-bottom: 1px solid var(--gold);
+            transform: rotate(45deg) translateY(-2px);
+            transition: transform .35s cubic-bezier(.4,0,.2,1), border-color .2s;
+            flex-shrink: 0;
+        }
+
+        .month-header:hover .month-chevron {
+            border-color: var(--rose);
+        }
+
+        .month-section.collapsed .month-chevron {
+            transform: rotate(-135deg) translateY(2px);
+        }
+
+        .month-cards-inner {
+            transition: height .45s cubic-bezier(.4,0,.2,1), opacity .35s ease;
+        }
+
         /* ── RESPONSIVE ── */
         @media (max-width: 640px) {
             .timeline::before {
@@ -1614,7 +1838,7 @@
 
         const timeline = document.getElementById('timeline');
 
-        CONFIG.events.forEach((ev, i) => {
+        function buildCard(ev, i) {
             const card = document.createElement('article');
             card.className = 'card';
 
@@ -1624,7 +1848,6 @@
             if (mediaList.length > 0) {
                 const first = mediaList[0];
                 if (first.type === 'image') {
-                    // show first image as cover; badge if multiple
                     const badge = mediaList.length > 1
                         ? `<span class="card-multi-badge">+${mediaList.length - 1} more</span>` : '';
                     mediaHTML = `
@@ -1659,11 +1882,9 @@
       <p class="card-caption">${ev.caption}</p>
     </div>`;
 
-            // ── ROMANTIC HIGHLIGHT ──────────────────────────────
             if (ev.romantic === true) {
                 card.classList.add('romantic');
 
-                // floating petals
                 const petals = document.createElement('div');
                 petals.className = 'romantic-petals';
                 const PETAL_CHARS = ['🌸','🌷','💗','✨','🌹'];
@@ -1679,7 +1900,6 @@
                 }
                 card.appendChild(petals);
 
-                // hover heart burst
                 const burst = document.createElement('div');
                 burst.className = 'heart-burst';
                 const HEARTS = ['💕','💖','💗','💓','💝'];
@@ -1693,7 +1913,76 @@
                 card.appendChild(burst);
             }
 
-            timeline.appendChild(card);
+            return card;
+        }
+
+        // Group consecutive events by month
+        function getMonthKey(dateStr) {
+            const d = new Date(dateStr);
+            if (isNaN(d)) return dateStr;
+            return d.toLocaleDateString('en-US', { month: 'long', year: 'numeric' });
+        }
+
+        const monthGroups = [];
+        CONFIG.events.forEach((ev, i) => {
+            const key = getMonthKey(ev.date);
+            if (!monthGroups.length || monthGroups[monthGroups.length - 1].key !== key) {
+                monthGroups.push({ key, events: [] });
+            }
+            monthGroups[monthGroups.length - 1].events.push({ ev, i });
+        });
+
+        let cardIndex = 0;
+        monthGroups.forEach(group => {
+            const section = document.createElement('div');
+            section.className = 'month-section';
+
+            const header = document.createElement('button');
+            header.className = 'month-header';
+            header.setAttribute('aria-expanded', 'true');
+            header.innerHTML = `<span class="month-label">${group.key}</span><span class="month-chevron"></span>`;
+
+            const cardsWrap = document.createElement('div');
+            cardsWrap.className = 'month-cards';
+
+            const cardsInner = document.createElement('div');
+            cardsInner.className = 'month-cards-inner';
+
+            group.events.forEach(({ ev, i }) => {
+                const card = buildCard(ev, i);
+                card.classList.add(cardIndex % 2 === 0 ? 'card--left' : 'card--right');
+                cardIndex++;
+                cardsInner.appendChild(card);
+            });
+
+            header.addEventListener('click', () => {
+                if (!section.classList.contains('collapsed')) {
+                    // Collapsing: pin height, then animate to 0
+                    cardsInner.style.height = cardsInner.offsetHeight + 'px';
+                    cardsInner.style.overflow = 'hidden';
+                    requestAnimationFrame(() => requestAnimationFrame(() => {
+                        cardsInner.style.height = '0px';
+                        cardsInner.style.opacity = '0';
+                    }));
+                    section.classList.add('collapsed');
+                    header.setAttribute('aria-expanded', 'false');
+                } else {
+                    // Expanding: animate to natural height, then free overflow so glow shows
+                    cardsInner.style.height = cardsInner.scrollHeight + 'px';
+                    cardsInner.style.opacity = '1';
+                    section.classList.remove('collapsed');
+                    header.setAttribute('aria-expanded', 'true');
+                    cardsInner.addEventListener('transitionend', () => {
+                        cardsInner.style.height = '';
+                        cardsInner.style.overflow = '';
+                    }, { once: true });
+                }
+            });
+
+            cardsWrap.appendChild(cardsInner);
+            section.appendChild(header);
+            section.appendChild(cardsWrap);
+            timeline.appendChild(section);
         });
 
         // ── SCROLL REVEAL ─────────────────────────────────────────
@@ -1964,12 +2253,137 @@
         const PETAL_COUNT = 38;
         const petals = Array.from({ length: PETAL_COUNT }, () => new Petal());
 
+        const bdayParticles = [];
+
         function loop() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
             petals.forEach(p => { p.update(); p.draw(); });
+            bdayParticles.forEach(p => { p.update(); p.draw(); });
             requestAnimationFrame(loop);
         }
         loop();
+
+        // ── BIRTHDAY EFFECTS ──────────────────────────────────────
+
+        (function () {
+            if (!CONFIG.birthDate) return;
+            const birth = new Date(CONFIG.birthDate + ' 2000');
+            if (isNaN(birth) || new Date().getMonth() !== birth.getMonth()) return;
+
+            // Birthday emoji particles on the canvas
+            const BDAY_EMOJIS = ['🌟', '🥳', '🎂', '🎈', '🎉', '🎊', '⭐', '🎁', '🎀', '✨'];
+            class BirthdayParticle {
+                constructor() { this.reset(true); }
+                reset(init = false) {
+                    this.emoji = BDAY_EMOJIS[Math.floor(Math.random() * BDAY_EMOJIS.length)];
+                    this.x = Math.random() * canvas.width;
+                    this.y = init ? Math.random() * canvas.height : -30;
+                    this.size = 36 + Math.random() * 10;
+                    this.speedY = .35 + Math.random() * .6;
+                    this.speedX = (Math.random() - .5) * .5;
+                    this.angle = Math.random() * Math.PI * 2;
+                    this.spin = (Math.random() - .5) * .025;
+                    this.opacity = .45 + Math.random() * .4;
+                    this.sway = Math.random() * Math.PI * 2;
+                    this.swaySpeed = .008 + Math.random() * .01;
+                }
+                update() {
+                    this.sway += this.swaySpeed;
+                    this.x += this.speedX + Math.sin(this.sway) * .6;
+                    this.y += this.speedY;
+                    this.angle += this.spin;
+                    if (this.y > canvas.height + 40) this.reset();
+                }
+                draw() {
+                    ctx.save();
+                    ctx.translate(this.x, this.y);
+                    ctx.rotate(this.angle);
+                    ctx.globalAlpha = this.opacity;
+                    ctx.font = `${this.size}px serif`;
+                    ctx.textAlign = 'center';
+                    ctx.textBaseline = 'middle';
+                    ctx.fillText(this.emoji, 0, 0);
+                    ctx.restore();
+                }
+            }
+            for (let i = 0; i < 22; i++) bdayParticles.push(new BirthdayParticle());
+
+            // Triangle pennant garland
+            const garland = document.createElement('div');
+            garland.className = 'bday-garland';
+            for (let i = 0; i < 22; i++) {
+                const p = document.createElement('span');
+                p.className = 'bday-pennant';
+                garland.appendChild(p);
+            }
+            document.body.prepend(garland);
+
+            // Letter-flag banner row
+            const letterGarland = document.createElement('div');
+            letterGarland.className = 'bday-letter-garland';
+            const LCOLORS = ['#c8637a', '#b8915a', '#9e6878', '#c06070', '#b8a050'];
+            let ci = 0;
+            'HAPPY BIRTHDAY'.split('').forEach(ch => {
+                if (ch === ' ') {
+                    const gap = document.createElement('span');
+                    gap.className = 'bday-gap';
+                    letterGarland.appendChild(gap);
+                    return;
+                }
+                const el = document.createElement('span');
+                el.className = 'bday-letter';
+                el.textContent = ch;
+                el.style.background = LCOLORS[ci % LCOLORS.length];
+                el.style.animationDelay = (ci * 0.12) + 's';
+                letterGarland.appendChild(el);
+                ci++;
+            });
+            document.body.prepend(letterGarland);
+
+            // Bobbing balloons fixed at the sides
+            const BCOLORS = ['var(--rose)', 'var(--gold)', 'var(--rose-light)', '#a8c5da', '#b5c9a0'];
+            [6, 18, 50, 78, 92].forEach((pct, i) => {
+                const b = document.createElement('span');
+                b.className = 'bday-balloon';
+                b.style.left = pct + '%';
+                const dx = (15 + Math.random() * 25) * (Math.random() > .5 ? 1 : -1);
+                b.style.setProperty('--dx', dx + 'px');
+                b.style.setProperty('--dur', (10 + Math.random() * 8) + 's');
+                b.style.setProperty('--bcolor', BCOLORS[i % BCOLORS.length]);
+                b.style.animationDelay = -(Math.random() * 14) + 's';
+                document.body.appendChild(b);
+            });
+        })();
+
+        // ── MOUSE TRAIL ───────────────────────────────────────────
+
+        (function () {
+            let lastSpawn = 0;
+            let hue = 340;
+
+            document.addEventListener('mousemove', e => {
+                const now = Date.now();
+                if (now - lastSpawn < 60) return;
+                lastSpawn = now;
+
+                hue = (hue + 10) % 360;
+                const size = 3 + Math.random() * 3;
+                const color = `hsl(${hue}, 90%, 82%)`;
+
+                const el = document.createElement('span');
+                el.className = 'mouse-trail-particle';
+                el.style.width = size + 'px';
+                el.style.height = size + 'px';
+                el.style.left = e.clientX + 'px';
+                el.style.top = e.clientY + 'px';
+                el.style.background = color;
+                el.style.boxShadow = `0 0 ${size * 2}px ${size * 1.5}px ${color}`;
+                el.style.setProperty('--dur', (.6 + Math.random() * .4) + 's');
+
+                document.body.appendChild(el);
+                el.addEventListener('animationend', () => el.remove(), { once: true });
+            });
+        })();
     </script>
 </body>
 
