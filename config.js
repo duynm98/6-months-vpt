@@ -13,10 +13,10 @@ const CONFIG = {
 
   // Birth date for birthday effects — format: "Month DD" (e.g. "July 15")
   // Leave empty or remove to disable birthday effects.
-  birthDate: "June 15",
+  birthDate: "July 22",
 
   // The big message shown on the landing screen
-  heroTitle:    "7 Tháng Bên Nhau",
+  heroTitle:    "8 Tháng Bên Nhau",
   heroSubtitle: "Every moment with you is a treasure I'll keep forever.",
 
   // Anniversary date (shown in the hero section)

@@ -1408,6 +1408,89 @@
             100% { transform: translate(0,                          -120vh) rotate(-3deg); opacity: 0; }
         }
 
+        /* ── BIRTHDAY COUNTDOWN WIDGET ── */
+        #bday-countdown {
+            position: fixed;
+            bottom: 1.5rem;
+            left: 1.5rem;
+            z-index: 1500;
+            display: none;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: .5rem;
+            background: rgba(250, 247, 244, .88);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border: 1px solid rgba(200, 99, 122, .18);
+            border-radius: 18px;
+            padding: .7rem 1.6rem 1rem;
+            box-shadow: 0 8px 32px rgba(43, 31, 31, .14);
+            opacity: 0;
+            transform: translateY(12px);
+            transition: opacity .5s, transform .5s;
+        }
+
+        #bday-countdown.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .bday-cd-label {
+            font-family: var(--font-body);
+            font-size: .7rem;
+            letter-spacing: .2em;
+            text-transform: uppercase;
+            color: var(--rose);
+            white-space: nowrap;
+        }
+
+        .bday-cd-units {
+            display: flex;
+            align-items: baseline;
+            gap: .65rem;
+        }
+
+        .bday-cd-unit {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-width: 32px;
+        }
+
+        .bday-cd-num {
+            font-family: var(--font-display);
+            font-size: 1.45rem;
+            font-weight: 700;
+            color: var(--ink);
+            line-height: 1;
+            min-width: 2ch;
+            text-align: center;
+        }
+
+        .bday-cd-unit-label {
+            font-family: var(--font-body);
+            font-size: .58rem;
+            letter-spacing: .15em;
+            text-transform: uppercase;
+            color: var(--ink-soft);
+            margin-top: 3px;
+        }
+
+        .bday-cd-sep {
+            font-size: 1rem;
+            color: var(--gold);
+            line-height: 1.6;
+            align-self: flex-start;
+            margin-top: .1rem;
+        }
+
+        .bday-cd-today {
+            font-family: var(--font-display);
+            font-style: italic;
+            font-size: .95rem;
+            color: var(--rose);
+        }
+
         /* ── MOUSE TRAIL ── */
         .mouse-trail-particle {
             position: fixed;
@@ -1599,6 +1682,32 @@
         <button class="music-btn" id="music-toggle" aria-label="Play music">▶</button>
     </div>
     <audio id="bg-audio" loop></audio>
+
+    <!-- ══════════════ BIRTHDAY COUNTDOWN ══════════════ -->
+    <div id="bday-countdown" role="timer" aria-label="Birthday countdown">
+        <span class="bday-cd-label">🎂 my girl's birthday in</span>
+        <div class="bday-cd-units" id="bday-cd-units">
+            <div class="bday-cd-unit">
+                <span class="bday-cd-num" id="bday-cd-days">0</span>
+                <span class="bday-cd-unit-label">days</span>
+            </div>
+            <span class="bday-cd-sep">·</span>
+            <div class="bday-cd-unit">
+                <span class="bday-cd-num" id="bday-cd-hours">00</span>
+                <span class="bday-cd-unit-label">hrs</span>
+            </div>
+            <span class="bday-cd-sep">·</span>
+            <div class="bday-cd-unit">
+                <span class="bday-cd-num" id="bday-cd-mins">00</span>
+                <span class="bday-cd-unit-label">min</span>
+            </div>
+            <span class="bday-cd-sep">·</span>
+            <div class="bday-cd-unit">
+                <span class="bday-cd-num" id="bday-cd-secs">00</span>
+                <span class="bday-cd-unit-label">sec</span>
+            </div>
+        </div>
+    </div>
 
     <!-- ══════════════ EASTER EGG ══════════════ -->
     <div class="egg-backdrop" id="egg-backdrop" role="dialog" aria-modal="true" aria-labelledby="egg-title">
@@ -2353,6 +2462,63 @@
                 b.style.animationDelay = -(Math.random() * 14) + 's';
                 document.body.appendChild(b);
             });
+        })();
+
+        // ── BIRTHDAY COUNTDOWN ────────────────────────────────────
+
+        (function () {
+            if (!CONFIG.birthDate) return;
+            const birth = new Date(CONFIG.birthDate + ' 2000');
+            if (isNaN(birth)) return;
+            const _now = new Date();
+            if (_now.getMonth() !== birth.getMonth()) return;
+            if (_now.getDate() >= birth.getDate()) return;
+            if (new Date().getDay() > birth.getDay()) return;
+
+            const widget = document.getElementById('bday-countdown');
+            const elDays  = document.getElementById('bday-cd-days');
+            const elHours = document.getElementById('bday-cd-hours');
+            const elMins  = document.getElementById('bday-cd-mins');
+            const elSecs  = document.getElementById('bday-cd-secs');
+            const label   = widget.querySelector('.bday-cd-label');
+
+            function nextBirthday() {
+                const now = new Date();
+                let next = new Date(now.getFullYear(), birth.getMonth(), birth.getDate(), 0, 0, 0, 0);
+                if (next <= now) next.setFullYear(next.getFullYear() + 1);
+                return next;
+            }
+
+            function pad(n) { return String(n).padStart(2, '0'); }
+
+            function tick() {
+                const now  = new Date();
+                const next = nextBirthday();
+                const diff = next - now;
+
+                if (diff <= 0) {
+                    label.textContent = '🎂 happy birthday!';
+                    document.getElementById('bday-cd-units').style.display = 'none';
+                    return;
+                }
+
+                const totalSecs = Math.floor(diff / 1000);
+                const secs  = totalSecs % 60;
+                const mins  = Math.floor(totalSecs / 60) % 60;
+                const hours = Math.floor(totalSecs / 3600) % 24;
+                const days  = Math.floor(totalSecs / 86400);
+
+                elDays.textContent  = days;
+                elHours.textContent = pad(hours);
+                elMins.textContent  = pad(mins);
+                elSecs.textContent  = pad(secs);
+            }
+
+            tick();
+            setInterval(tick, 1000);
+
+            widget.style.display = 'flex';
+            requestAnimationFrame(() => requestAnimationFrame(() => widget.classList.add('visible')));
         })();
 
         // ── MOUSE TRAIL ───────────────────────────────────────────
