@@ -1,0 +1,31 @@
+# Staging area for photos not yet added to the site
+media/temp/
+
+# macOS
+.DS_Store
+.AppleSingle
+.LSOverride
+._*
+
+# Windows
+Thumbs.db
+desktop.ini
+
+# Editors / IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Environment / local overrides
+.env
+.env.*
+docker-compose.override.yml
+
+# Logs
+*.log
+
+# Claude Code local settings
+.claude/settings.local.json
+media/temp

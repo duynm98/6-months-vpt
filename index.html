@@ -518,7 +518,13 @@
             line-height: 1.05;
             color: var(--ink);
             opacity: 0;
-            animation: fadeUp .9s .5s forwards;
+            animation: fadeUp .9s .5s forwards, heroTitleGlow 3.2s 1.4s ease-in-out infinite;
+        }
+
+        /* soft breathing glow around the whole title */
+        @keyframes heroTitleGlow {
+            0%, 100% { text-shadow: 0 2px 14px rgba(20, 0, 8, .45), 0 0 10px rgba(255, 190, 215, .25); }
+            50%      { text-shadow: 0 2px 14px rgba(20, 0, 8, .45), 0 0 22px rgba(255, 190, 215, .6), 0 0 42px rgba(255, 126, 179, .35); }
         }
 
         .hero-title em {
@@ -529,6 +535,23 @@
         .hero-title .title-line { display: block; }
         .hero-title .title-line-1 { color: #ffffff; }
         .hero-title .title-line-2 { color: var(--rose-light); }
+        .hero-title .hero-highlight {
+            color: #f891bc;
+            /* dark rose halo keeps the pink legible over bright skin tones in the cover photo */
+            text-shadow: 0 0 2px rgba(60, 0, 25, .55), 0 2px 18px rgba(60, 0, 25, .6);
+            animation: heroHighlightGlow 3.2s 1.4s ease-in-out infinite;
+        }
+
+        /* stronger pink glow on the highlighted part, in sync with the title */
+        @keyframes heroHighlightGlow {
+            0%, 100% { text-shadow: 0 0 2px rgba(60, 0, 25, .55), 0 2px 18px rgba(60, 0, 25, .6), 0 0 12px rgba(255, 126, 179, .35); }
+            50%      { text-shadow: 0 0 2px rgba(60, 0, 25, .55), 0 2px 18px rgba(60, 0, 25, .6), 0 0 24px rgba(255, 126, 179, .85), 0 0 48px rgba(255, 79, 139, .55); }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .hero-title { animation: fadeUp .9s .5s forwards; }
+            .hero-title .hero-highlight { animation: none; }
+        }
 
         .hero-divider {
             width: 80px;
@@ -701,6 +724,22 @@
             justify-content: center;
             border: 1px solid var(--rose-light);
             z-index: 2;
+            animation: dotGlow 2.8s ease-in-out infinite;
+        }
+
+        @keyframes dotGlow {
+            0%, 100% { box-shadow: 0 0 6px 2px rgba(200, 99, 122, .30); }
+            50%       { box-shadow: 0 0 14px 6px rgba(200, 99, 122, .60); }
+        }
+
+        .card.romantic::before {
+            border-color: #d94f72;
+            animation: dotGlowRomantic 2.8s ease-in-out infinite;
+        }
+
+        @keyframes dotGlowRomantic {
+            0%, 100% { box-shadow: 0 0 10px 4px rgba(217, 79, 114, .50); }
+            50%       { box-shadow: 0 0 22px 10px rgba(217, 79, 114, .80); }
         }
 
         .card--left::before {
@@ -803,6 +842,20 @@
             inset: 0;
             background: radial-gradient(ellipse 70% 60% at 50% 50%, rgba(200, 99, 122, .10) 0%, transparent 70%);
         }
+
+        .closing-intro {
+            position: relative;
+            font-family: var(--font-display);
+            font-style: italic;
+            font-size: clamp(1.15rem, 3vw, 1.7rem);
+            font-weight: 300;
+            line-height: 1.7;
+            max-width: 560px;
+            margin: 0 auto 2rem;
+            color: var(--rose);
+        }
+
+        .closing-intro:empty { display: none; }
 
         .closing-heart {
             font-size: 3.5rem;
@@ -1668,6 +1721,7 @@
 
     <!-- ══════════════ CLOSING ══════════════ -->
     <section class="closing">
+        <p class="closing-intro" id="closing-intro"></p>
         <span class="closing-heart">♥</span>
         <p class="closing-message" id="closing-message"></p>
         <p class="closing-names" id="closing-names"></p>
@@ -1762,13 +1816,23 @@
     <script>
         // ── POPULATE FROM CONFIG ──────────────────────────────────
 
+        const daysTogether = (() => {
+            const start = new Date(CONFIG.anniversaryDate);
+            const today = new Date();
+            start.setHours(0, 0, 0, 0);
+            today.setHours(0, 0, 0, 0);
+            return Math.max(0, Math.round((today - start) / 86400000));
+        })();
+
         document.getElementById('hero-title').innerHTML = CONFIG.heroTitle
+            .replace(/\{days\}/g, daysTogether)
             .split('\n')
             .map((line, i) => `<span class="title-line title-line-${i + 1}">${line}</span>`)
             .join('');
 
         document.getElementById('hero-subtitle').textContent = CONFIG.heroSubtitle;
         document.getElementById('hero-date').textContent = CONFIG.anniversaryDate;
+        document.getElementById('closing-intro').textContent = CONFIG.closingIntro || '';
         document.getElementById('closing-message').textContent = CONFIG.closingMessage;
         document.getElementById('closing-names').textContent =
             `${CONFIG.names.yours}  ♥  ${CONFIG.names.hers}`;

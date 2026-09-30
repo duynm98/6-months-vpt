@@ -16,13 +16,18 @@ const CONFIG = {
   birthDate: "July 22",
 
   // The big message shown on the landing screen
-  heroTitle:    "Chúc mừng sinh nhựt\nEm pé cụa anhh",
-  heroSubtitle: "Bấm vô trái tim ♥ để xem những lời chúc nha!!",
+  // "{days}" is replaced with the number of days since anniversaryDate.
+  // Wrap text in <span class="hero-highlight">…</span> to colour it pink.
+  heroTitle:    '<span class="hero-highlight">{days} Ngày</span> Bên Nhau',
+  heroSubtitle: "Every moment with you is a treasure I'll keep forever.",
 
   // Anniversary date (shown in the hero section)
   anniversaryDate: "October 25, 2025",
 
   heroImage: "images/cover.jpg",   // your photo in media/images/
+
+  // Short line shown above the closing heart (leave empty to hide)
+  closingIntro: "Hôm nào tạo thêm thật nhiều kỷ niệm cùng nhau tiếp nhaaa!",
 
   // Closing message at the bottom of the page
   closingMessage: "Cảm ơn em đã xuất hiện trong cuộc đời của anh 💕",
@@ -261,6 +266,70 @@ const CONFIG = {
       media:   ["images/260530.jpg", "images/260530_2.jpg"],
       type:    "image",
     },
+    {
+      date:    "June 20, 2026",
+      title:   "Ăn mừng điện thoại mới 📱",
+      caption: "Hôm này là mới mua điện thoại mới xong đang ngồi vọc nè.",
+      media:   ["images/260620_1.jpg"],
+      type:    "image",
+    },
+    {
+      date:    "June 28, 2026",
+      title:   "Lại đi mall 🛒",
+      caption: "Không mua gì mà suốt ngày đi mall lun á!",
+      media:   ["images/260628_1.jpg"],
+      type:    "image",
+    },
+    {
+      date:    "July 23, 2026",
+      title:   "Hậu đi du lịch 🏖️",
+      caption: "Mình có mấy ngày ở với nhau sau khi e đi du lịch với cty về nè. Hạnh phúc quá trời lun ó!",
+      media:   ["images/260723_1.jpg"],
+      type:    "image",
+    },
+    {
+      date:    "July 24, 2026",
+      title:   "Chúc mừng sinh nhật em iuuuu 🎂",
+      caption: "Hôm sinh nhựt thì Ny đang ở Nha Trang nên hum nay mí tổ chức sinh nhựt cho ny.\nNote lại khỏi quên: Chữ trên bánh là \"Happy Birthday nữ 9 của anh ❤️\"",
+      media:   ["images/260724_1.jpg", "images/260724_2.jpg"],
+      type:    "image",
+    },
+    {
+      date:    "August 8, 2026",
+      title:   "Đi hỏi vợ thui!!",
+      caption: "Ngày rất quan trọng. Gia đình anh chính thức sang gia đình em thưa chuyện của 2 đứa. Sau hôm nay chừa luôn từ nay hong uống rịu nữa.\nMà ngày hôm nay ít ảnh của 2 đứa quó!!!",
+      media:   ["images/260808_1.jpg", "images/260808_2.jpeg"],
+      type:    "image",
+      romantic: true,
+    },
+    {
+      date:    "August 15, 2026",
+      title:   "Lại được nấu ăn cùng nhau và nằm ôm nhaoo!! 🍚",
+      caption: "Nấu ăn ví nhau nè, làm cơm cuộn ăn nè. Ám ảnh cà rốt 🥕",
+      media:   ["images/260815_1.jpg", "images/260815_2.jpg", "images/260815_3.jpg"],
+      type:    "image",
+    },
+    {
+      date:    "September 3, 2026",
+      title:   "Giải thoát cơn thèm lẩu của ny 🍲",
+      caption: "Dokki nhưng rẻ hơn và không bị limit thời gian 😂",
+      media:   ["images/260903_1.jpg", "images/260903_2.jpg"],
+      type:    "image",
+    },
+    {
+      date:    "September 5, 2026",
+      title:   "Đi chơi trung thu sớm 🌕",
+      caption: "Hướng nội nên chọn đi chơi trung thu trước tận 20 ngày cho đỡ đông mà tính ra chơi được nhiều phết. Đi chụp ảnh hoa cẩm tú cầu nè (nhưng không được cái nào). Đi ăn kem nè (nhưng nhầm quầy không có kem ốc quế). Đi ăn bún đậu theo review thread xong trốn vé xe nè. Đi Hàng Mã nè. Đi Lăng Bác xem hạ cờ nè.",
+      media:   ["images/260905_1.jpg", "images/260905_2.jpg", "images/260905_3.jpg", "images/260905_4.jpg", "images/260905_5.jpg", "images/260905_6.jpg", "images/260905_7.jpg"],
+      type:    "image",
+    },
+    {
+      date:    "September 25, 2026",
+      title:   "Đi chơi vào ngày trung thu 🌕",
+      caption: "Thời điểm thì đúng là ngày trung thu nhưng đi chơi thì không trung thu lắm 😂 Không biết đi đâu nên mở app quay bánh xe chọn random. Sau khi thêm các tuỳ chọn là Đi hát, Đi cafe, Đi ngắm pháo hoa và chọn được ô Đi hát, chúng tôi quyết định Đi mall. Xong đi trúng cái mall đi rồi mà tưởng chưa đi =))",
+      media:   ["images/260925_1.jpeg", "images/260925_2.jpeg"],
+      type:    "image",
+    },
     // {
     //   date:    "March 29, 2026",
     //   title:   "18+",
@@ -277,121 +346,146 @@ const CONFIG = {
   easterEgg: {
     enabled: true,
     messages: [
-        {
-            icon:    "🥳",
-            title:   "Happy Birthday",
-            message: "Pé Thảo tuổi mới thật là hạnh phúc, vui vẻ nha! Chúc em sinh nhật năm sau thì đã là thạc sĩ, đang làm một công việc ưng ý, đang hạnh phúc với mọi thứ trong cuộc sống nha!",
-        },
-        {
-            icon:    "🎂",
-            title:   "Sinh nhật em iu",
-            message: "Hôm nay sinh nhựt em iu\nThêm tuổi mà vẫn đáng iu nhất nhà\nChúc em hạnh phúc đậm đà\nNăm sau sinh nhật, về nhà ví anh!",
-        },
-        {
-            icon:    "🎈",
-            title:   "Sinh nhật vui vẻ nha em iu",
-            message: "Hôm nay sinh nhật em yêu\nLòng anh háo hức từ chiều hôm qua\nĐi làm xong vội về nhà\nVề nhà để chuẩn bị quà cho iem",
-        },
-        {
-            icon:    "🎈",
-            title:   "Sinh nhật vui vẻ nha em iu",
-            message: "Hôm nay sinh nhật em yêu\nLòng anh háo hức từ chiều hôm qua\nĐi làm xong vội về nhà\nVề nhà để chuẩn bị quà cho iem",
-        },
-        {
-            icon:    "🎉",
-            title:   "BREAKING!!!",
-            message: "Hưởng ứng ngày tuổi của em Thảo đổi mới lần thứ XXV, anh Duy ra mắt phiên bản đặc biệt cho trang web của 2 đứa.",
-        },
-        {
-            icon:    "🎊",
-            title:   "SNVV",
-            message: "Chúc mừng bạn đã đủ tuổi làm chuyện người lớn được tròn 7 năm!",
-        },
-        {
-            icon:    "🎁",
-            title:   "Hế lu bấy bì",
-            message: "Em ơi anh bảo cấy nì\nChúc mừng xink nhựt bấy bì của anh\nNha Trang mây trắng biển xanh\nDẫu xa, nỗi nhớ anh dành cho em!",
-        },
-        {
-            icon:    "✨",
-            title:   "🌟 Chúc mừng sinh nhật pé Thảo 🌟",
-            message: "Ngừi iu của em chúc em tuổi mới luôn trẻ, luôn khoẻ, luôn vui vẻ, luôn cute, luôn cười hehe, được cưng như em bé, đi concert không lo vé, mãi iu anh em nhé, anh nhớ em lắm é!",
-        }
-    //   {
-    //     icon:    "💌",
-    //     title:   "Bức tâm tình nho nhỏ",
-    //     message: "Dear bé Thảo,\n\nCảm ơn em vì đã ở bên anh.\nAnh trân trọng từng giây từng phút được ở bên cạnh e 🌸",
-    //   },
-    //   {
-    //     icon:    "🌙",
-    //     title:   "Em biết gì không",
-    //     message: "Anh không đòi hỏi gì nhiều, chỉ muốn em ở bên cạnh anh càng nhiều càng tốt.",
-    //   },
-    //   {
-    //     icon:    "✨",
-    //     title:   "Nhắc nhở nho nhỏ",
-    //     message: "Anh vẫn luôn ấp ủ và lên kế hoạch cho nhiều thứ cùng em, chỉ chờ cơ hội được sử dụng nó 💕. Nên là cứ luôn chuẩn bị cho những điều bất ngờ hehe",
-    //   },
-    //   {
-    //     icon:    "💌",
-    //     title:   "Bức tâm tình nho nhỏ",
-    //     message: "Cảm ơn em rất nhiều vì đã đến bên anh, đã cho anh khoảng thời gian hạnh phúc nhất cuộc đời.\n\nXin lỗi em vì đã có những lần em cảm thấy phiền lòng, tổn thương.",
-    //   },
-    //   {
-    //     icon:    "🌸",
-    //     title:   "Nói nghe nè",
-    //     message: "Dù cho chuyện gì xảy ra, anh vẫn luôn biết ơn quãng thời gian ở bên em.",
-    //   },
-    //   {
-    //     icon:    "🐠",
-    //     title:   "Psst…",
-    //     message: "Nếu không làm IT thì anh sẽ đi làm sale, vì việc anh làm giỏi nhất là Thương Thảo 💕",
-    //   },
-    //   {
-    //     icon:    "🐠",
-    //     title:   "Psst…",
-    //     message: "Nếu mỗi lần nhớ em anh tạo ra được 1 nguyên tử vàng, thì vua Midas cũng chỉ còn là cái tên 💕",
-    //   },
-    //   {
-    //     icon:    "🐠",
-    //     title:   "Psst…",
-    //     message: "Nếu mỗi lần nhớ em anh đốt được 1 calo thì bây giờ chắc anh đang bị còi xương",
-    //   },
-    //   {
-    //     icon:    "🐠",
-    //     title:   "Psst…",
-    //     message: "Cứ nhìn mặt em là anh lại muốn cáu!\n\nCáu nhươi",
-    //   },
-    //   {
-    //     icon:    "✨",
-    //     title:   "Fun fact",
-    //     message: "Em là người lấy đi rất nhiều lần đầu của anh, first love, first kiss và nhiều cái first khác nữa :3",
-    //   },
-    //   {
-    //     icon:    "✨",
-    //     title:   "Fun fact",
-    //     message: "Hôm 3rd date của bọn mình, bạn của anh quay sang hỏi anh là 'Ny à?', lúc đấy chưa phải là ny nên anh phải lắc đầu =))",
-    //   },
-    //   {
-    //     icon:    "✨",
-    //     title:   "Fun fact",
-    //     message: "Loại quả anh thích ăn nhất là cam 🍊, cụ thể là cam 🍊 Thảo",
-    //   },
-    //   {
-    //     icon:    "✨",
-    //     title:   "Nhắc nhở nho nhỏ",
-    //     message: "Anh vẫn muốn một lần được ngồi cùng em dưới bầu trời đêm và ngắm sao 🌌. Anh sẽ kể cho em nghe thật nhiều câu chuyện hay ho về bầu trời!",
-    //   },
-    //   {
-    //     icon:    "💌",
-    //     title:   "Bức tâm tình",
-    //     message: "Tuy chúng mình có cãi nhau, có giận nhau, có cả những lúc tưởng đã mất nhau\n\nnhưng đến giờ phút này chúng mình vẫn ở bên nhau\n\nỞ đây anh chỉ muốn lưu giữ những kỷ niệm đẹp. Mình hãy cùng nhau tạo ra thêm thật là nhiều nữa nhé\n\nAnh yêu em rất nhiều!",
-    //   },
-    //   {
-    //     icon:    "😍",
-    //     title:   "Em biết gì không",
-    //     message: "Đối với anh thì em luôn là cô gái đáng yêu nhất Thế Giới 🌏. Nếu tương lai có ai đó soán ngôi này, đấy chỉ có thể là con gái của chúng ta.",
-    //   },
+        // {
+        //     icon:    "🥳",
+        //     title:   "Happy Birthday",
+        //     message: "Pé Thảo tuổi mới thật là hạnh phúc, vui vẻ nha! Chúc em sinh nhật năm sau thì đã là thạc sĩ, đang làm một công việc ưng ý, đang hạnh phúc với mọi thứ trong cuộc sống nha!",
+        // },
+        // {
+        //     icon:    "🎂",
+        //     title:   "Sinh nhật em iu",
+        //     message: "Hôm nay sinh nhựt em iu\nThêm tuổi mà vẫn đáng iu nhất nhà\nChúc em hạnh phúc đậm đà\nNăm sau sinh nhật, về nhà ví anh!",
+        // },
+        // {
+        //     icon:    "🎈",
+        //     title:   "Sinh nhật vui vẻ nha em iu",
+        //     message: "Hôm nay sinh nhật em yêu\nLòng anh háo hức từ chiều hôm qua\nĐi làm xong vội về nhà\nVề nhà để chuẩn bị quà cho iem",
+        // },
+        // {
+        //     icon:    "🎈",
+        //     title:   "Sinh nhật vui vẻ nha em iu",
+        //     message: "Hôm nay sinh nhật em yêu\nLòng anh háo hức từ chiều hôm qua\nĐi làm xong vội về nhà\nVề nhà để chuẩn bị quà cho iem",
+        // },
+        // {
+        //     icon:    "🎉",
+        //     title:   "BREAKING!!!",
+        //     message: "Hưởng ứng ngày tuổi của em Thảo đổi mới lần thứ XXV, anh Duy ra mắt phiên bản đặc biệt cho trang web của 2 đứa.",
+        // },
+        // {
+        //     icon:    "🎊",
+        //     title:   "SNVV",
+        //     message: "Chúc mừng bạn đã đủ tuổi làm chuyện người lớn được tròn 7 năm!",
+        // },
+        // {
+        //     icon:    "🎁",
+        //     title:   "Hế lu bấy bì",
+        //     message: "Em ơi anh bảo cấy nì\nChúc mừng xink nhựt bấy bì của anh\nNha Trang mây trắng biển xanh\nDẫu xa, nỗi nhớ anh dành cho em!",
+        // },
+        // {
+        //     icon:    "✨",
+        //     title:   "🌟 Chúc mừng sinh nhật pé Thảo 🌟",
+        //     message: "Ngừi iu của em chúc em tuổi mới luôn trẻ, luôn khoẻ, luôn vui vẻ, luôn cute, luôn cười hehe, được cưng như em bé, đi concert không lo vé, mãi iu anh em nhé, anh nhớ em lắm é!",
+        // }
+      {
+        icon:    "💌",
+        title:   "Bức tâm tình nho nhỏ",
+        message: "Dear bé Thảo,\n\nCảm ơn em vì đã ở bên anh.\nAnh trân trọng từng giây từng phút được ở bên cạnh e 🌸",
+      },
+      {
+        icon:    "🌙",
+        title:   "Em biết gì không",
+        message: "Anh không đòi hỏi gì nhiều, chỉ muốn em ở bên cạnh anh càng nhiều càng tốt.",
+      },
+      {
+        icon:    "✨",
+        title:   "Nhắc nhở nho nhỏ",
+        message: "Anh vẫn luôn ấp ủ và lên kế hoạch cho nhiều thứ cùng em, chỉ chờ cơ hội được sử dụng nó 💕. Nên là cứ luôn chuẩn bị cho những điều bất ngờ hehe",
+      },
+      {
+        icon:    "💌",
+        title:   "Bức tâm tình nho nhỏ",
+        message: "Cảm ơn em rất nhiều vì đã đến bên anh, đã cho anh khoảng thời gian hạnh phúc nhất cuộc đời.\n\nXin lỗi em vì đã có những lần em cảm thấy phiền lòng, tổn thương.",
+      },
+      {
+        icon:    "🌸",
+        title:   "Nói nghe nè",
+        message: "Dù cho chuyện gì xảy ra, anh vẫn luôn biết ơn quãng thời gian ở bên em.",
+      },
+      {
+        icon:    "🐠",
+        title:   "Psst…",
+        message: "Nếu không làm IT thì anh sẽ đi làm sale, vì việc anh làm giỏi nhất là Thương Thảo 💕",
+      },
+      {
+        icon:    "🐠",
+        title:   "Psst…",
+        message: "Nếu mỗi lần nhớ em anh tạo ra được 1 nguyên tử vàng, thì vua Midas cũng chỉ còn là cái tên 💕",
+      },
+      {
+        icon:    "🐠",
+        title:   "Psst…",
+        message: "Nếu mỗi lần nhớ em anh đốt được 1 calo thì bây giờ chắc anh đang bị còi xương",
+      },
+      {
+        icon:    "🐠",
+        title:   "Psst…",
+        message: "Nhìn ny thấy gầy trơ xương.\n\nXương vãi chỉnh",
+      },
+      {
+        icon:    "🐠",
+        title:   "Psst…",
+        message: "Cứ nhìn mặt em là anh lại muốn cáu!\n\nCáu nhươi",
+      },
+      {
+        icon:    "✨",
+        title:   "Fun fact",
+        message: "Em là người lấy đi rất nhiều lần đầu của anh, first love, first kiss và nhiều cái first khác nữa :3",
+      },
+      {
+        icon:    "✨",
+        title:   "Fun fact",
+        message: "Hôm 3rd date của bọn mình, bạn của anh quay sang hỏi anh là 'Ny à?', lúc đấy chưa phải là ny nên anh phải lắc đầu =))",
+      },
+      {
+        icon:    "✨",
+        title:   "Fun fact",
+        message: "Loại quả anh thích ăn nhất là cam 🍊, cụ thể là cam 🍊 Thảo",
+      },
+      {
+        icon:    "✨",
+        title:   "Nhắc nhở nho nhỏ",
+        message: "Anh vẫn muốn một lần được ngồi cùng em dưới bầu trời đêm và ngắm sao 🌌. Anh sẽ kể cho em nghe thật nhiều câu chuyện hay ho về bầu trời!",
+      },
+      {
+        icon:    "💌",
+        title:   "Bức tâm tình",
+        message: "Tuy chúng mình có cãi nhau, có giận nhau, có cả những lúc tưởng đã mất nhau\n\nnhưng đến giờ phút này chúng mình vẫn ở bên nhau\n\nỞ đây anh chỉ muốn lưu giữ những kỷ niệm đẹp. Mình hãy cùng nhau tạo ra thêm thật là nhiều nữa nhé\n\nAnh yêu em rất nhiều!",
+      },
+      {
+        icon:    "😍",
+        title:   "Em biết gì không",
+        message: "Đối với anh thì em luôn là cô gái đáng yêu nhất Thế Giới 🌏. Nếu tương lai có ai đó soán ngôi này, đấy chỉ có thể là con gái của chúng ta.",
+      },
+      {
+        icon:    "🏊",
+        title:   "Có thể em chưa biết",
+        message: "Thực ra anh chơi thể thao rất giỏi. Môn anh chơi giỏi nhất là môn bơi.\n\nBơi em cả đền",
+      },
+      {
+        icon:    "🐠",
+        title:   "Psst…",
+        message: "Anh không thích ăn thảo quả lắm.\n\nNhưng anh thích Thảo quá 😚",
+      },
+      {
+        icon:    "🌿",
+        title:   "Có thể em chưa biết",
+        message: "Bác sĩ bảo anh thiếu vitamin, cần uống thêm thuốc bổ.\n\nAnh bảo không sao, anh có Thảo dược riêng rồi",
+      },
+      {
+        icon:    "🐠",
+        title:   "Psst…",
+        message: "Nếu mỗi lần anh nhớ em là một ngôi sao, thì bầu trời Hà Nội chắc chẳng cần đèn đường nữa 🌌",
+      },
     ],
   },
 
