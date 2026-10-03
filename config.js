@@ -18,11 +18,20 @@ const CONFIG = {
   // The big message shown on the landing screen
   // "{days}" is replaced with the number of days since anniversaryDate.
   // Wrap text in <span class="hero-highlight">…</span> to colour it pink.
-  heroTitle:    '<span class="hero-highlight">{days} Ngày</span> Bên Nhau',
+  heroTitle:    'Đã yêu nhau được\n<span class="hero-highlight">{days} ngày</span>',
   heroSubtitle: "Every moment with you is a treasure I'll keep forever.",
 
   // Anniversary date (shown in the hero section)
   anniversaryDate: "October 25, 2025",
+
+  // Countdown to the next yearly anniversary (bottom-left corner).
+  // Appears only from 1 month before the anniversary, through the day itself.
+  // "{years}" is replaced with the number of years being celebrated.
+  anniversaryCountdown: {
+    enabled:    true,
+    label:      "Sắp tròn {years} năm bên nhau",
+    todayLabel: "Hôm nay tròn {years} năm bên nhau",
+  },
 
   heroImage: "images/cover.jpg",   // your photo in media/images/
 
