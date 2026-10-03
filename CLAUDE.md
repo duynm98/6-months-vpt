@@ -56,6 +56,10 @@ There are no lint or test commands — this is a static site with no tooling.
 
 Clicking the hero heart cycles through `CONFIG.easterEgg.messages[]`. Each message has `icon`, `title`, and `message` fields. Set `CONFIG.easterEgg.enabled = false` to hide the feature.
 
+### Anniversary day
+
+On the yearly anniversary of `CONFIG.anniversaryDate`, the "ANNIVERSARY DAY EFFECTS" script in `index.html` adds an opening envelope, a banner, fairy lights, heart balloons, floating hearts, hearts on tap, a swapped hero title and a spotlight on the timeline card dated `anniversaryDate`. Texts and switches live in `CONFIG.anniversaryDay`. Open the site with `?preview=anniversary` to see it on any other day.
+
 ### CSS design tokens
 
 All colours and fonts are defined as CSS custom properties on `:root` in `index.html`. Key tokens: `--rose`, `--gold`, `--cream`, `--ink`, `--font-display`, `--font-body`.

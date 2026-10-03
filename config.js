@@ -29,8 +29,35 @@ const CONFIG = {
   // "{years}" is replaced with the number of years being celebrated.
   anniversaryCountdown: {
     enabled:    true,
-    label:      "Sắp tròn {years} năm bên nhau",
-    todayLabel: "Hôm nay tròn {years} năm bên nhau",
+    label:      "Đếm ngược kỷ niệm {years} năm iu nhau",
+    todayLabel: "Hôm nay tròn {years} năm iu nhau",
+  },
+
+  // Soft celebration shown only on the anniversary day itself, every year:
+  // an envelope to open, a banner, fairy lights, heart balloons, floating hearts
+  // and hearts wherever she taps.
+  // "{years}" is replaced with the number of years being celebrated,
+  // "{hers}" / "{yours}" with the names above.
+  // Tip: open the site with ?preview=anniversary to see it on any other day.
+  anniversaryDay: {
+    enabled: true,
+    banner:  "Happy {years} Year Anniversary",
+
+    // Hero title for the day, replacing heroTitle above.
+    // "{days}" counts up from 0 to the number of days together.
+    // Set to "" to keep the usual title.
+    heroTitle: '<span class="hero-highlight">{years} năm </span>yêu em\n<span class="hero-highlight">{days} ngày</span> thương em',
+
+    // Ribbon on the timeline card whose date matches anniversaryDate
+    dayOneRibbon: "✨ Ngày này {years} năm trước",
+
+    // Sealed envelope covering the page until she taps it
+    envelope: {
+      enabled: true,
+      to:      "Gửi ngừi iu",     // line above the envelope
+      letter:  "Thế là đã iu nhao đc {years} năm gòi neeeè ♥♥♥\n\n",      // written on the letter inside
+      hint:    "Chạm để mở",         // line below the envelope
+    },
   },
 
   heroImage: "images/cover.jpg",   // your photo in media/images/
