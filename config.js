@@ -60,7 +60,7 @@ const CONFIG = {
     },
   },
 
-  heroImage: "images/cover.jpg",   // your photo in media/images/
+  heroImage: "images/cover_2.jpg",   // your photo in media/images/
 
   // Short line shown above the closing heart (leave empty to hide)
   closingIntro: "Hôm nào tạo thêm thật nhiều kỷ niệm cùng nhau tiếp nhaaa!",
